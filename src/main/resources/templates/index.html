@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+
+	<header th:replace = "layout/layout :: header"></header>
+
+  				<div class="container-fluid" align="center">
+					<div class="container">
+						<h1 class="text"style="color:white">BIENVENIDO</h1>
+						<br /> <img class="mb-4" th:src="@{/img/wallet.png}"
+							alt="finanzas" style="width: 28%; height: 28%; margin: auto;">
+						<p class="lead text" style="color:white">Tu cartera de descuentos est&aacute; lista para usar</p>
+						<p class="lead textd" style="color:white">Recuerda que primero tienes que tener una factura registrada para que la cartera funciones de manera &oacute;ptima</p>
+						
+						
+					</div>
+				</div>
+	
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+
+ 	
+</body>
+</html>

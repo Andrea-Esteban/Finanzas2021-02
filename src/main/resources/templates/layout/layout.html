@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <!--Responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--CSS Bootstrap-->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/fontawesome.min.css}" rel="stylesheet">
+    <link th:href="@{/css/solid.min.css}" rel="stylesheet">
+    <!--Application CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  
+</head>
+<body>
+	
+	<header th:fragment ="header">
+	<!--navbar1-->
+	<div class=" " id="top-menu">
+	<nav class="navbar navbar-expand-lg navbar-light container">
+	    <div class="container-fluid">
+	        <a class="navbar-brand" href="/">
+	            <img src="/img/Finanzasapp.png" alt="FinanzasApp" width="20" height="20">	            
+	        </a>
+	        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	            <span class="navbar-toggler-icon"></span>
+	        </button>
+	        <div class="menu collapse navbar-collapse d-md-flex justify-content-around" id="navbarSupportedContent">
+			
+	            
+	           <ul class="navbar-nav me-auto mb-2 m-md-0 mb-lg-0">
+	           <li class="nav-item" sec:authorize="isAuthenticated()">
+	                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+	                </li>
+	           
+	                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+	                    <a class="nav-link active" aria-current="page" href="/registros">Registros</a>
+	                </li> 
+	                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+	                    <a class="nav-link active" aria-current="page" href="/descuentos">Descuentos</a>
+	                </li> 
+	                
+	               </ul> 
+	               <ul class="navbar-nav me-auto mb-2 m-md-0 mb-lg-0">
+	               <li class="nav-item" sec:authorize="isAnonymous()">
+	                   <a class="nav-link active" aria-current="page" th:href="@{/login}">Iniciar Sesión</a>
+	               </li>
+	               
+	               <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
+	                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+	                       <i class="fas fa-user-circle"></i> 
+	                       <span sec:authentication="name">Profile</span>
+	                    </a>
+	                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+	                        <li><a class="dropdown-item" th:href="@{/logout}">Cerrar Sesión</a></li>
+	                    </ul>
+	                </li>
+	           </ul>
+	        </div>
+	    </div>
+	</nav>
+	</div>
+	
+	</header>
+	
+	
+	
+	
+	
+	<!--Footer-->
+	  <!-- Site footer -->
+	  <footer th:fragment="footer" class="site-footer mt-5" id="top-menu">
+	    <div class="container">
+	      <div class="row" id="AU">
+	        <div class="col-sm-12 col-md-6">
+	          <h6>Acerca de Nosotros</h6>
+	          <p class="text-justify" style="color:white">Somos FinanzasApp, creado por un grupo de estudiantes de la universidad Peruana de Ciencias Aplicadas (UPC) enfocados en ayudar a los dueños de pequeñas y medianas empresas a crear su propia cartera de descuentos.</p>
+	        </div>
+	
+	        	        
+	      </div>
+	      <hr>
+	    </div>
+	    <div class="container">
+	      <div class="row">
+			<div class="col-md-8 col-sm-6 col-xs-12" align="right">
+	          <p class="copyright-text"> Copyright &copy; 2021 All Rights Reserved by FinanzasApp
+	          </p>
+	        </div>
+	      </div>
+	    </div>
+	</footer>
+	
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace = "layout/layout :: header"></header>
+	
+	<div class="card" style="width: 40rem;">
+	  <div class="card-header">
+	    &#161;Se agreg&#243; un registro correctamente!
+	  </div>
+	  <div class="card-body">
+	  	<p>
+	  		Id: <span th:text="${registro.id}"></span> <br>
+	  		Nombre de empresa: <span th:text="${registro.nombreEmpresa}"></span> <br>
+	  		Monto Total: <span th:text="${registro.montoTotal}"></span> <br>
+	  		Fecha Inicio: <span th:text="${registro.fechainicio}"></span> <br>
+	  		Fecha Final: <span th:text="${registro.fechafinal}"></span> <br>
+	  	</p>
+	  	
+	    
+	    <a th:href="@{/registros}" class="btn btn-primary"> <i class="fas fa-angle-double-left"></i> Return</a>
+	  </div>
+	</div>
+	
+	
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

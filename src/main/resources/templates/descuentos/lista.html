@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace = "layout/layout :: header"></header>
+	<h1></h1>
+	<main>
+		
+	<div th:if="${mensajeError}"
+							class="alert alert-danger alert-dismissable" role="alert"
+							th:text="${mensajeError}"></div>
+	<div th:if="${mensajeSuccess}"
+							class="alert alert-success alert-dismissable" 
+							th:text="${mensajeSuccess}"></div>
+	<div class="card" style="width: 100%;">
+	  <div class="card-header">
+	    Lista de Descuentos
+	  </div>
+	  <div class="card-body">
+	  <h1></h1>
+	  <a th:href="@{'/descuentos/new'}" class="btn btn-primary"> <i class="fas fa-plus"></i> Nuevo Descuento</a>
+	  	<table class="table table-striped table-hover">
+	  	 
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nombre de la Empresa</th>
+		      <th scope="col">Monto total</th>
+		      <th scope="col">D&#237;as transcurridos</th>
+		      <th scope="col">Tipo de tasa</th>
+		      <th scope="col">Tasa</th>
+		      <th scope="col">d</th>
+		      <th scope="col">descuento</th>
+		      <th scope="col">Gastos Iniciales</th>
+		      <th scope="col">Gastos Finales</th>
+		      <th scope="col">Valor Neto</th>
+		      <th scope="col">Valor Recibido</th>
+		      <th scope="col">Valor Entregado</th>
+		      <th scope="col">TCEA (%)</th>
+		      <th scope="col"></th>
+		      <th scope="col"></th>
+		      
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="descuento : ${descuentos}">
+		      <th th:text="${descuento.id}" scope="row">1</th>
+		      <td th:text="${descuento.registro.nombreEmpresa}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.registro.montoTotal),1,2)}">Mark</td>
+		      <td th:text="${descuento.registro.dias}">Mark</td>
+		      <td th:text="${descuento.tipoTasa}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.tasa),1,2)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.d),1,6)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.descuento),1,2)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.gastosIniciales),1,2)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.gastosFinales),1,2)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.valorNeto),1,2)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.valorRecibido),1,2)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.valorEntregado),1,2)}">Mark</td>
+		      <td th:text="${#numbers.formatDecimal((descuento.tcea),1,6)}">Mark</td>
+		     <!--   <td > <a  th:href="@{'/shows/' + ${show.id} }" class="btn btn-outline-info"> <i class="fas fa-search"></i> </a> </td>-->
+		       
+		      <td> <a th:href="@{'/descuentos/del/' + ${descuento.id}}" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</a></td>  
+		    </tr>
+		  </tbody>
+		</table>
+	    
+	   
+	    
+	  </div>
+	</div>
+	
+
+
+	
+	
+	
+	
+	
+	
+	</main>
+
+
+<footer th:replace = "layout/layout :: footer"></footer>
+ 	
+ 	
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace="layout/layout :: header"></header>
+<div class="card" style="width: 40rem;">
+	  <div class="card-header">
+	    Nuevo Registro
+	  </div>
+	  <div class="card-body">
+	  	<div th:if="${mensaje}"
+							class="alert alert-danger alert-dismissable" role="alert"
+							th:text="${mensaje}"></div>	  
+	  	<form th:action="@{/registros/savenew}" th:object="${registroNew}" method="post">
+		  	<div class="mb-3">
+		    <label for="name" class="form-label">Nombre de la empresa</label>
+		    <input type="text" class="form-control" th:field="*{nombreEmpresa}" placeholder="Nombre del show" >
+		    <label for="number" class="form-label">Monto Total</label><div></div>
+		  	<input type="number" step="0.01" th:field="*{montoTotal}" placeholder="Precio del show"><div></div>
+		    <label for="name" class="form-label">Fecha de inicio</label>
+		    <input type="date" class="form-control" th:field="*{fechainicio}" placeholder="Fecha del show" >
+		    <label for="name" class="form-label">Fecha final</label>
+		    <input type="date" class="form-control" th:field="*{fechafinal}" placeholder="Fecha del show" >
+		  	
+		    <!--  <input type="text" class="form-control"  >-->
+		     <label for="name" class="form-label">Moneda</label>
+		     <select th:field="*{moneda}" class="form-control">
+				      	<option th:each="moneda : ${monedas}" 
+				      		th:value="${moneda.id}" 
+				      		th:text="${moneda.nombre}" ></option>
+			 </select>
+		     
+			
+		  </div>
+
+		  <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+		</form>
+		<br>
+  		<a th:href="@{/registros}" class="btn btn-outline-primary"> <i class="fas fa-angle-double-left"></i> Regresar</a>
+	  </div>
+	</div>
+	
+	
+
+
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+				xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Login Page</title>
+    <link th:href="@{/css/style2.css}" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+
+<div th:if="${param.error}" class="alert alert-danger">
+				Usuario o Contrase&#241;a inv&#225;lidos
+			</div>
+<!--  
+<div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${error != null}">
+  <span th:text="${error}"></span>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+-->
+
+<div class="div-formulario d-flex flex-column align-items-center justify-content-center">
+
+	<div class="form-sign">
+    <form th:action="@{/signin}" method="post" class="form-signin d-flex flex-column align-items-center">
+      <img src="/img/Logo.png" class="w-75 d-inline-block align-top mb-4" alt="logo">  
+       <input type="text" class="form-control" name="username" id="username" placeholder="Username" required autofocus>
+       <input type="password"  class="form-control mt-3" name="password" id="password"  placeholder="Password" required>
+       <div class="checkbox mb-3">
+       </div>
+       <button class="btn btn-lg btn-primary btn-block w-100" type="submit" name="btn-ingresar">Login</button>
+              
+     </form>
+	</div>
+</div>
+
+	
+	
+	
+</body>
+</html>

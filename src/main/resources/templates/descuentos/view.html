@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+	<header th:replace = "layout/layout :: header"></header>
+	
+	<div class="card" style="width: 40rem;">
+	  <div class="card-header">
+	    &#161;Se agreg&#243; un descuento correctamente!
+	  </div>
+	  <div class="card-body">
+	  	<p>
+	  		Id: <span th:text="${descuento.id}"></span> <br>
+	  		Nombre de empresa: <span th:text="${descuento.registro.nombreEmpresa}"></span> <br>
+	  		Monto Total: <span th:text="${descuento.registro.montoTotal}"></span> <br>
+	  		Dias transcurridos: <span th:text="${descuento.registro.dias}"></span> <br>
+	  		Tipo de Tasa: <span th:text="${descuento.tipoTasa}"></span> <br>
+	  		Tasa: <span th:text="${descuento.tasa}"></span> <br>
+	  		d (%): <span th:text="${descuento.d}"></span> <br>
+	  		Descuentos: <span th:text="${descuento.descuento}"></span> <br>
+	  		Gastos iniciales: <span th:text="${descuento.gastosIniciales}"></span> <br>
+	  		Gastos finales: <span th:text="${descuento.gastosFinales}"></span> <br>
+	  		Valor Neto: <span th:text="${descuento.valorNeto}"></span> <br>
+	  		Gastos Recibido: <span th:text="${descuento.valorRecibido}"></span> <br>
+	  		Valor Entregado: <span th:text="${descuento.valorEntregado}"></span> <br>
+	  		TCEA: <span th:text="${descuento.tcea}"></span> <br>
+	  	</p>
+	    
+	    <a th:href="@{/descuentos}" class="btn btn-primary"> <i class="fas fa-angle-double-left"></i> Return</a>
+	  </div>
+	</div>
+	
+	
+	<footer th:replace = "layout/layout :: footer"></footer>
+ 	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

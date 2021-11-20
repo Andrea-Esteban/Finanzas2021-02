@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+</head>
+<body>
+<header th:replace = "layout/layout :: header"></header>
+	<h1></h1>
+	<main>
+		<section class="container mt-4">
+	<div th:if="${mensajeError}"
+							class="alert alert-danger alert-dismissable" role="alert"
+							th:text="${mensajeError}"></div>
+	<div th:if="${mensajeSuccess}"
+							class="alert alert-success alert-dismissable" 
+							th:text="${mensajeSuccess}"></div>
+	<div class="card" style="width: 100%;">
+	  <div class="card-header">
+	    Lista de Registros
+	  </div>
+	  <div class="card-body">
+	  <h1></h1>
+	  <a th:href="@{'/registros/new'}" class="btn btn-primary"> <i class="fas fa-plus"></i> Nuevo Registro</a>
+	  	<table class="table table-striped table-hover">
+	  	 
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Nombre de la Empresa</th>
+		      <th scope="col">Monto total</th>
+		      <th scope="col">Fecha de Inicio</th>
+		      <th scope="col">Fecha Final</th>
+		      <th scope="col">D&iacute;as transcurridos</th>
+		      <th scope="col">Moneda</th>
+		      <th scope="col"></th>
+		      <th scope="col"></th>
+		      
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="registro : ${registros}">
+		      <th th:text="${registro.id}" scope="row">1</th>
+		      <td th:text="${registro.nombreEmpresa}">Mark</td>
+		      <td th:text="${registro.montoTotal}">Mark</td>
+		      <td th:text="${registro.fechainicio}">Mark</td>
+		      <td th:text="${registro.fechafinal}">Mark</td>
+		      <td th:text="${registro.dias}">Mark</td>
+		      <td th:text="${registro.moneda.nombre}">Mark</td>
+		      
+		     <!--   <td > <a  th:href="@{'/shows/' + ${show.id} }" class="btn btn-outline-info"> <i class="fas fa-search"></i> </a> </td>-->
+		     
+		      <td> <a th:href="@{'/registros/del/' + ${registro.id}}" class="btn btn-danger"> <i class="fas fa-trash-alt"></i> Eliminar</a></td>  
+		    </tr>
+		  </tbody>
+		</table>
+	    
+	   
+	    
+	  </div>
+	</div>
+	
+
+
+	
+	
+	
+	
+	</section>
+	
+	</main>
+
+
+<footer th:replace = "layout/layout :: footer"></footer>
+ 	
+ 	
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
